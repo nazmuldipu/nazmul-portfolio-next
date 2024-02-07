@@ -15,8 +15,8 @@ import { useState } from "react";
 import { NavbarType } from "@/types/Portfolio.types";
 import { usePathname } from "next/navigation";
 import SVGIcon from "../icons/SVGIcon";
-import GithubIcon from "./GithubIcon";
-import LinkedinIcon from "./LinkedinIcon";
+import GithubIcon from "../icons/GithubIcon";
+import LinkedinIcon from "../icons/LinkedinIcon";
 
 const Header = ({ navbar }: { navbar: NavbarType }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +29,11 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
   ));
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      className="rounded-full max-w-7xl mx-auto"
+      maxWidth="full"
+    >
       <NavbarContent>
         <NavbarBrand>
           <Image
@@ -52,13 +56,7 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         {navItems}
       </NavbarContent>
-      <NavbarContent className="md:hidden" justify="end">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
-        />
-      </NavbarContent>
-      <NavbarContent className="hidden md:flex gap-4" justify="end">
+      <NavbarContent justify="end">
         <NavbarItem>
           <Link href="/">
             <SVGIcon
@@ -77,16 +75,26 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
             />
           </Link>
         </NavbarItem>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="md:hidden"
+        />
         <Button
           radius="full"
           color="primary"
           href="/NazmulAlam_Aug2023.pdf"
           as={Link}
+          className="hidden md:flex"
         >
           Download CV
         </Button>
       </NavbarContent>
-      <NavbarMenu>{navItems}</NavbarMenu>
+
+      <NavbarMenu className="mt-3 px-5 bg-light">
+        <div className="bg-white p-4 rounded-2xl flex flex-col gap-4 ">
+          {navItems}
+        </div>
+      </NavbarMenu>
     </Navbar>
   );
 };
