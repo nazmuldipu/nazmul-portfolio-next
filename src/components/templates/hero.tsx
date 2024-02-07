@@ -17,7 +17,7 @@ const Hero = ({ name, about, image }: HeroProps) => {
       <div className="relative min-h-44 w-32 sm:w-52 sm:min-h-72 md:w-72 md:min-h-[403px] xl:w-80 xl:min-h-[448px] justify-self-end">
         <div className="absolute h-28 sm:h-44 md:h-60 w-full bottom-8 sm:bottom-12 md:bottom-20 xl:bottom-28 bg-primary rounded-t-full" />
         <SanityImage
-          alt="abcd"
+          alt="Nazmul Alam's Image"
           asset={image.asset}
           className="absolute"
           maxWidth={350}

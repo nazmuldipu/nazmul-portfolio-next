@@ -50,7 +50,7 @@ export type PortFolio = {
   about: About;
   experience: Experience[];
   lastEducation: string;
-  navbar: Navbar;
+  navbar: NavbarType;
   location: Location;
   image: any;
   skills: Skills[];

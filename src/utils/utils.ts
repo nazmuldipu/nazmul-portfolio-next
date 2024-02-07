@@ -2,7 +2,7 @@ import {
   About,
   Education,
   Experience,
-  Navbar,
+  NavbarType,
   PortFolio,
   Skills,
 } from "@/types/Portfolio.types";
@@ -49,7 +49,7 @@ const getEducation = (education: any): Education[] => {
   return educations;
 };
 
-const getNavbar = (navbar: any): Navbar => {
+const getNavbar = (navbar: any): NavbarType => {
   const socials = navbar.socials.map((social: any) => {
     return {
       name: social.name,
