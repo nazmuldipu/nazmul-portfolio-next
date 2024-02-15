@@ -11,8 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#c25875",
-        secondary: "#C2C058",
+        main: "var(--main)",
+        primary: "var(--light-0)",
+        secondary: "var(--light-1)",
         light: "#F6F6F6",
         dark: "#2F2F2F",
         accent: "#58C2C0",
@@ -24,6 +25,12 @@ const config: Config = {
         secondary: ["var(--font-secondary)"],
         stylus: ["var(--font-stylus)"],
         mono: ["var(--font-mono)"],
+      },
+      height: {
+        "screen-nav": "calc(100vh - 48px)",
+      },
+      translate: {
+        screen: "100vh",
       },
     },
   },

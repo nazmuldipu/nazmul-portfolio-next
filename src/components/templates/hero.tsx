@@ -9,7 +9,7 @@ interface HeroProps {
 }
 const Hero = ({ name, about, image }: HeroProps) => {
   return (
-    <section className="grid grid-cols-2 lg:grid-cols-3 py-8 lg:gap-4 max-w-5xl mx-auto">
+    <section className="grid grid-cols-2 lg:grid-cols-3 py-8 lg:gap-4 max-w-5xl mx-auto p-4">
       <div className="flex-1 sm:max-w-64 lg:max-w-96 xl:max-w-full self-center">
         <h2 className="text-3xl sm:text-4xl font-bold">{name}</h2>
         <Divider className="bg-primary w-28 h-0.5 my-2" />

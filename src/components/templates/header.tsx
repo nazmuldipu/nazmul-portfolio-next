@@ -1,101 +1,136 @@
 "use client";
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 import { NavbarType } from "@/types/Portfolio.types";
-import { usePathname } from "next/navigation";
-import SVGIcon from "../icons/SVGIcon";
-import GithubIcon from "../icons/GithubIcon";
-import LinkedinIcon from "../icons/LinkedinIcon";
+
+import SVGIcon from "@/components/icons/SVGIcon";
+import SkillsIcon from "@/components/icons/SkillsIcon";
+import NazmulSmIcon from "@/components/icons/nazmulSmIcon";
+import ProjectsIcon from "@/components/icons/ProjectsIcon";
+import ExperiencesIcon from "@/components/icons/Experiences";
+import EducationIcon from "@/components/icons/EducationIcon";
+import ResumeIcon from "@/components/icons/ResumeIcon";
+
+import ThemeButton from "./themeButton";
+import NazmulIcon from "../icons/NazmulIcon";
 
 const Header = ({ navbar }: { navbar: NavbarType }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
 
-  const navItems = navbar.names.map((item, index) => (
-    <NavbarItem key={`${item}-${index}`} isActive={pathname === item.href}>
-      <Link href={item.href}>{item.name}</Link>
-    </NavbarItem>
-  ));
+  const getIcon = (path: string) => {
+    switch (path) {
+      case "/":
+        return <SVGIcon icon={NazmulSmIcon} size={36} />;
+      case "/skills":
+        return <SVGIcon icon={SkillsIcon} size={20} />;
+      case "/projects":
+        return <SVGIcon icon={ProjectsIcon} size={20} />;
+      case "/experiences":
+        return <SVGIcon icon={ExperiencesIcon} size={20} />;
+      case "/education":
+        return <SVGIcon icon={EducationIcon} size={20} />;
+      case "/resume":
+        return <SVGIcon icon={ResumeIcon} size={20} />;
+      default:
+        return <SVGIcon icon={SkillsIcon} size={20} />;
+    }
+  };
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      className="rounded-full max-w-7xl mx-auto"
-      maxWidth="full"
-    >
-      <NavbarContent>
-        <NavbarBrand>
-          <Image
-            className="md:hidden"
-            src="/nazmul_sm.svg"
-            alt="logo"
-            width={36}
-            height={36}
-          />
-          <Image
-            className="hidden md:inline-block"
-            src="/nazmul.svg"
-            alt="logo"
-            width={120}
-            height={36}
-          />
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
-        {navItems}
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Link href="/">
-            <SVGIcon
-              icon={GithubIcon}
-              size={20}
-              pathClassName="text-text-secondary"
-            />
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/">
-            <SVGIcon
-              icon={LinkedinIcon}
-              size={20}
-              pathClassName="text-text-secondary"
-            />
-          </Link>
-        </NavbarItem>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
-        />
-        <Button
-          radius="full"
-          color="primary"
-          href="/NazmulAlam_Aug2023.pdf"
-          as={Link}
-          className="hidden md:flex"
+    <div className="flex justify-center sticky top-0 z-10 px-2 h-12 bg-main border-b border-secondary">
+      <nav className="w-full xl:max-w-5xl lg:max-w-screen-md mx-auto  flex flex-row items-center text-sm">
+        <Link
+          href="/"
+          className="decoration-none px-4 self-stretch items-center cursor-pointer flex-row flex w-auto"
         >
-          Download CV
-        </Button>
-      </NavbarContent>
-
-      <NavbarMenu className="mt-3 px-5 bg-light">
-        <div className="bg-white p-4 rounded-2xl flex flex-col gap-4 ">
-          {navItems}
+          <span className="md:hidden">
+            <SVGIcon
+              icon={NazmulSmIcon}
+              size={36}
+              pathClassName="text-secondary-text"
+            />
+          </span>
+          <span className="hidden md:inline-block">
+            <SVGIcon
+              icon={NazmulIcon}
+              width={60}
+              height={36}
+              pathClassName="text-secondary-text"
+            />
+          </span>
+        </Link>
+        <div className="flex-1 block overflow-hidden md:hidden tracking-widest whitespace-nowrap text-ellipsis text-center">
+          Nazmul Alam
         </div>
-      </NavbarMenu>
-    </Navbar>
+        <div className=" hidden md:flex flex-row flex-1 self-center h-full justify-center">
+          {navbar.names.map((item, index) => (
+            <Link
+              key={`${item.name}-${index}`}
+              href={item.href}
+              className=" font-normal px-5 py-2 flex gap-2 items-center border-b-3 border-transparent"
+            >
+              {getIcon(item.href)}
+              <span className="hidden lg:inline-block">{item.name}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="hidden md:block">
+          <ThemeButton />
+        </div>
+        <button
+          className="text-secondary-text w-10 h-10 md:hidden relative focus:outline-none "
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span className="sr-only">Open main menu</span>
+          <div className="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <span
+              aria-hidden="true"
+              className={`block absolute w-5 h-px bg-current transform transition duration-500 ease-in-out ${
+                isMenuOpen ? "rotate-45" : "-translate-y-1.5"
+              }`}
+            ></span>
+            <span
+              aria-hidden="true"
+              className={`block absolute w-4 h-px bg-current transform transition duration-500 ease-in-out ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
+            ></span>
+            <span
+              aria-hidden="true"
+              className={`block absolute w-5 h-px bg-current transform transition duration-500 ease-in-out ${
+                isMenuOpen ? "-rotate-45" : "translate-y-1.5"
+              }`}
+            ></span>
+          </div>
+        </button>
+      </nav>
+
+      {/* Mobile view modal nav */}
+      <div
+        className={` h-screen-nav w-full absolute top-12 left-0 bg-main transform transition duration-500 ease-in-out md:hidden ${
+          isMenuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-screen"
+        }`}
+      >
+        <div className="flex-col flex-1 self-center justify-center mt-7">
+          {navbar.names.map((item, index) => (
+            <Link
+              key={`${item.name}-${index}`}
+              href={item.href}
+              className=" font-normal px-5 py-2 flex gap-5 items-center border-b-3 border-transparent"
+            >
+              {getIcon(item.href)}
+              <span>{item.name}</span>
+            </Link>
+          ))}
+        </div>
+        <div className=" flex flex-col mt-7 gap-2">
+          <ThemeButton modalMenu />
+        </div>
+      </div>
+    </div>
   );
 };
 
