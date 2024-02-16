@@ -48,8 +48,12 @@ const ThemeButton = ({ modalMenu = false }: ThemeButtonProps) => {
   };
 
   useEffect(() => {
-    document.querySelector(":root").dataset.theme = theme ?? maybeTheme();
-    localStorage.setItem("theme", theme ?? maybeTheme());
+    let element: HTMLElement | null = document.querySelector(":root");
+    if (element) {
+      element.dataset.theme = theme ?? maybeTheme();
+      localStorage.setItem("theme", theme ?? maybeTheme() ?? "light");
+    }
+    // document.querySelector(":root").dataset.theme = theme ?? maybeTheme();
     setTheme(theme ?? maybeTheme());
 
     const useSetTheme = (e: any) => {

@@ -6,7 +6,7 @@ import { NavbarType } from "@/types/Portfolio.types";
 
 import SVGIcon from "@/components/icons/SVGIcon";
 import SkillsIcon from "@/components/icons/SkillsIcon";
-import NazmulSmIcon from "@/components/icons/nazmulSmIcon";
+import NazmulSmIcon from "@/components/icons/NazmulSmIcon";
 import ProjectsIcon from "@/components/icons/ProjectsIcon";
 import ExperiencesIcon from "@/components/icons/Experiences";
 import EducationIcon from "@/components/icons/EducationIcon";

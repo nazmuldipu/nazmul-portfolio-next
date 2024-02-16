@@ -1,4 +1,3 @@
-// import { PortableTextBlock } from "sanity";
 import { PortableTextBlock } from "@portabletext/types";
 
 export type About = {

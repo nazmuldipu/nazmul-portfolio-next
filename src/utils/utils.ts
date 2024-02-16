@@ -7,7 +7,7 @@ import {
   Skills,
 } from "@/types/Portfolio.types";
 
-import { PortableTextBlock } from "sanity";
+import { PortableTextBlock } from "@portabletext/types";
 
 const getAbout = (about: any): About => {
   const details = about.details.map((detail: any) => {
@@ -82,7 +82,7 @@ export const formatSanityData = (data: any): PortFolio => {
   const about = getAbout(data.about);
   const education = getEducation(data.education);
   const experience = getExperience(data.experience);
-  const headline: PortableTextBlock[] = data.headline;
+  const headline: PortableTextBlock[] = data.headline as PortableTextBlock[];
   const image: string = data.image;
   const lastEducation: string = data.lastEducation;
   const location = { country: data.location.country, city: data.location.city };
