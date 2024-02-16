@@ -1,29 +1,17 @@
 "use server";
 import Header from "@/components/templates/header";
 import Hero from "@/components/templates/hero";
-import SkillsAndExperience from "@/components/templates/skillAndExperience";
-import { getProfile } from "@/sanity/lib/queries";
+import { getHomePageData } from "@/sanity/lib/queries";
 import { formatSanityData } from "@/utils/utils";
 
 export default async function Home() {
-  const data = await getProfile();
+  const data = await getHomePageData();
 
-  const fd = formatSanityData(data);
+  const { about, image, name, navbar } = formatSanityData(data);
   return (
     <main className="flex flex-col min-h-screen font-primary">
-      <Header navbar={fd.navbar} name={fd.name} />
-      <Hero
-        about={fd.about}
-        name={fd.name}
-        image={fd.image}
-        socials={fd.navbar.socials}
-      />
-      {/* <SkillsAndExperience
-        experience={fd.experience}
-        skills={fd.skills}
-        headline={fd.headline}
-      /> */}
-      {/* {JSON.stringify(fd)} */}
+      <Header navbar={navbar} name={name} />
+      <Hero about={about} name={name} image={image} socials={navbar.socials} />
     </main>
   );
 }

@@ -16,6 +16,9 @@ const config: Config = {
         primary: "var(--light-0)",
         secondary: "var(--light-1)",
         "tertiary-text": "var(--tertiary-text)",
+        "accent-text": "var(--accent-text)",
+        border: "var(--border)",
+        "border-hover": "var(--border-hover)",
 
         light: "#F6F6F6",
         dark: "#2F2F2F",

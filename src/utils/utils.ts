@@ -10,6 +10,7 @@ import {
 import { PortableTextBlock } from "@portabletext/types";
 
 const getAbout = (about: any): About => {
+  if (!about) return { title: "", subtitle: "", details: [] };
   const details = about.details.map((detail: any) => {
     return {
       title: detail.title,
@@ -24,6 +25,7 @@ const getAbout = (about: any): About => {
 };
 
 const getExperience = (experience: any): Experience[] => {
+  if (!experience) return [];
   const experiences = experience.map((exp: any) => {
     return {
       company: exp.company,
@@ -37,6 +39,7 @@ const getExperience = (experience: any): Experience[] => {
 };
 
 const getEducation = (education: any): Education[] => {
+  if (!education) return [];
   const educations = education.map((edu: any) => {
     return {
       academy: edu.academy,
@@ -72,6 +75,7 @@ const getNavbar = (navbar: any): NavbarType => {
 };
 
 const getSkills = (skillSet: any): Skills[] => {
+  if (!skillSet) return [];
   const skills = skillSet.map((skill: any) => {
     return { level: skill.level, skill: skill.skill };
   });
@@ -85,7 +89,10 @@ export const formatSanityData = (data: any): PortFolio => {
   const headline: PortableTextBlock[] = data.headline as PortableTextBlock[];
   const image: string = data.image;
   const lastEducation: string = data.lastEducation;
-  const location = { country: data.location.country, city: data.location.city };
+  const location = {
+    country: data.location?.country,
+    city: data.location?.city,
+  };
   const name: string = data.name;
   const navbar = getNavbar(data.navbar);
   const skills = getSkills(data.skills);
