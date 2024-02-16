@@ -12,13 +12,19 @@ const config: Config = {
     extend: {
       colors: {
         main: "var(--main)",
+        "main-hover": "var(--main-hover)",
         primary: "var(--light-0)",
         secondary: "var(--light-1)",
+        "tertiary-text": "var(--tertiary-text)",
+
         light: "#F6F6F6",
         dark: "#2F2F2F",
         accent: "#58C2C0",
         "text-primary": "#374151",
         "text-secondary": "#6b7280",
+      },
+      flex: {
+        "0.5": "0.5 1 0%",
       },
       fontFamily: {
         primary: ["var(--font-primary)"],

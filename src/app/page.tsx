@@ -10,14 +10,19 @@ export default async function Home() {
 
   const fd = formatSanityData(data);
   return (
-    <main className="font-primary">
-      <Header navbar={fd.navbar} />
-      <Hero about={fd.about} name={fd.name} image={fd.image} />
-      <SkillsAndExperience
+    <main className="flex flex-col min-h-screen font-primary">
+      <Header navbar={fd.navbar} name={fd.name} />
+      <Hero
+        about={fd.about}
+        name={fd.name}
+        image={fd.image}
+        socials={fd.navbar.socials}
+      />
+      {/* <SkillsAndExperience
         experience={fd.experience}
         skills={fd.skills}
         headline={fd.headline}
-      />
+      /> */}
       {/* {JSON.stringify(fd)} */}
     </main>
   );

@@ -15,7 +15,11 @@ import ResumeIcon from "@/components/icons/ResumeIcon";
 import ThemeButton from "./themeButton";
 import NazmulIcon from "../icons/NazmulIcon";
 
-const Header = ({ navbar }: { navbar: NavbarType }) => {
+interface HeaderProps {
+  navbar: NavbarType;
+  name: string;
+}
+const Header = ({ navbar, name }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getIcon = (path: string) => {
@@ -39,10 +43,10 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
 
   return (
     <div className="flex justify-center sticky top-0 z-10 px-2 h-12 bg-main border-b border-secondary">
-      <nav className="w-full xl:max-w-5xl lg:max-w-screen-md mx-auto  flex flex-row items-center text-sm">
+      <nav className="w-full xl:max-w-5xl lg:max-w-screen-md mx-auto flex flex-row items-center text-sm">
         <Link
           href="/"
-          className="decoration-none px-4 self-stretch items-center cursor-pointer flex-row flex w-auto"
+          className="decoration-none px-4 self-stretch items-center cursor-pointer flex-row flex w-auto hover:bg-main-hover transition ease-in-out"
         >
           <span className="md:hidden">
             <SVGIcon
@@ -61,14 +65,14 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
           </span>
         </Link>
         <div className="flex-1 block overflow-hidden md:hidden tracking-widest whitespace-nowrap text-ellipsis text-center">
-          Nazmul Alam
+          {name}
         </div>
         <div className=" hidden md:flex flex-row flex-1 self-center h-full justify-center">
           {navbar.names.map((item, index) => (
             <Link
               key={`${item.name}-${index}`}
               href={item.href}
-              className=" font-normal px-5 py-2 flex gap-2 items-center border-b-3 border-transparent"
+              className=" font-normal px-5 py-2 flex gap-2 items-center border-b-3 border-transparent hover:bg-main-hover transition ease-in-out"
             >
               {getIcon(item.href)}
               <span className="hidden lg:inline-block">{item.name}</span>
@@ -119,7 +123,7 @@ const Header = ({ navbar }: { navbar: NavbarType }) => {
             <Link
               key={`${item.name}-${index}`}
               href={item.href}
-              className=" font-normal px-5 py-2 flex gap-5 items-center border-b-3 border-transparent"
+              className=" font-normal px-5 py-2 flex gap-5 items-center border-b-3 border-transparent hover:bg-main-hover transition ease-in-out"
             >
               {getIcon(item.href)}
               <span>{item.name}</span>
