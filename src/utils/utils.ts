@@ -5,6 +5,7 @@ import {
   NavbarType,
   PortFolio,
   Skills,
+  Technology,
 } from "@/types/Portfolio.types";
 
 import { PortableTextBlock } from "@portabletext/types";
@@ -24,18 +25,30 @@ const getAbout = (about: any): About => {
   };
 };
 
+const getTechnologies = (technologies: any): Technology[] => {
+  if (!technologies) return [];
+  return technologies.map((tech: any) => {
+    return {
+      name: tech.name,
+      logo: tech.logo,
+    };
+  });
+};
+
 const getExperience = (experience: any): Experience[] => {
   if (!experience) return [];
-  const experiences = experience.map((exp: any) => {
+  return experience.map((exp: any) => {
     return {
       company: exp.company,
+      companyLogo: exp.companyLogo,
       designation: exp.designation,
       starts: exp.starts,
       ends: exp.ends,
       roles: exp.roles,
+      slug: exp.slug.current,
+      technologies: getTechnologies(exp.technologies),
     };
   });
-  return experiences;
 };
 
 const getEducation = (education: any): Education[] => {

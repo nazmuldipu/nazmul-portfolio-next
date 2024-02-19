@@ -13,6 +13,7 @@ interface Props {
   alt: string;
   asset: SanityImageSource;
   maxWidth: any;
+  imageSizes?: number[];
   className?: string;
 }
 
@@ -20,9 +21,9 @@ const SanityImage = ({
   alt,
   asset,
   maxWidth,
+  imageSizes = [320, 480, 640],
   className,
 }: Props): JSX.Element => {
-  const imageSizes = [320, 480, 640];
   const srcUrlSet = imageSizes.map((w) => {
     return `${urlFor(asset).width(w).url()}&auto=format ${w}w`;
   });

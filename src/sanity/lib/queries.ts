@@ -27,3 +27,10 @@ export async function getExperiencesData() {
   );
   return data;
 }
+
+export async function getEducationData() {
+  const data = await client.fetch(
+    '*[_type == "portfolio"][0]{education,navbar,name}'
+  );
+  return data;
+}

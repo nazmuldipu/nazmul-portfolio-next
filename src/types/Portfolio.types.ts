@@ -1,5 +1,9 @@
 import { PortableTextBlock } from "@portabletext/types";
 
+export type Technology = {
+  name: string;
+  logo: string;
+};
 export type About = {
   title: string;
   subtitle: string;
@@ -14,6 +18,9 @@ export type Experience = {
   ends: string;
   roles: PortableTextBlock[];
   company: string;
+  companyLogo: any;
+  slug: string;
+  technologies: Technology[];
 };
 export type Socials = {
   name: string;

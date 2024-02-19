@@ -12,7 +12,6 @@ const SkillsAndExperience = ({
   skills,
   headline,
 }: SkillsAndExperienceProps) => {
-  // console.log({ skills, experience });
   return (
     <section className="bg-white">
       <div className="max-w-5xl mx-auto border p-4 md:p-8">
