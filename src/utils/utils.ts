@@ -56,6 +56,7 @@ const getEducation = (education: any): Education[] => {
   const educations = education.map((edu: any) => {
     return {
       academy: edu.academy,
+      academyLogo: edu.academyLogo,
       degree: edu.degree,
       ends: edu.ends,
       starts: edu.starts,

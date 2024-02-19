@@ -3,6 +3,7 @@ import { PortableText } from "@portabletext/react";
 import { Education } from "@/types/Portfolio.types";
 import SVGIcon from "@/components/icons/SVGIcon";
 import DiamondIcon from "@/components/icons/DiamondIcon";
+import SanityImage from "./SanityImage";
 
 interface ExperienceCardProps {
   edu: Education;
@@ -21,6 +22,15 @@ const EducationCard = ({ edu, index }: ExperienceCardProps) => {
       </div>
       <section className="flex flex-col flex-1 items-stretch">
         <div className="mb-5 p-6 relative inline-flex flex-col border border-border rounded-2xl">
+          <div className="w-16 my-2">
+            <SanityImage
+              alt={`${edu.academy} image`}
+              asset={edu.academyLogo.asset}
+              className="w-16"
+              imageSizes={[128]}
+              maxWidth={64}
+            />
+          </div>
           <div className="flex-1 flex flex-col gap-2 items-stretch">
             <div className=" text-xl">{edu.degree}</div>
             <div className="">{edu.academy}</div>

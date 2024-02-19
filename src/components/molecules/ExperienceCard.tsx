@@ -40,15 +40,14 @@ const ExperienceCard = ({ exp, index }: ExperienceCardProps) => {
       </div>
       <section className="flex flex-col flex-1 items-stretch">
         <Link
-          href={`/experiences/${exp.company}/${exp.designation}`}
+          href={`/experiences/${exp.slug}`}
           className="mb-5 relative inline-flex flex-col border border-border rounded-2xl"
         >
           <div className="p-6 flex flex-col flex-1">
             <div className="flex flex-col items-start gap-5 md:gap-1 md:flex-row">
               <div className="w-12 flex-shrink-0">
-                {/* <SVGIcon icon={NoImageIcon} size={48} /> */}
                 <SanityImage
-                  alt="Nazmul Alam's Image"
+                  alt={`${exp.company} image`}
                   asset={exp.companyLogo.asset}
                   className="w-12 flex-shrink-0"
                   imageSizes={[48, 64]}

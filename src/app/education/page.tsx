@@ -10,7 +10,7 @@ const EducationPage = async () => {
   const { education, navbar, name } = formatSanityData(data);
 
   return (
-    <main className="flex flex-col min-h-screen font-primary">
+    <main className="flex flex-col min-h-screen font-primary pb-12">
       <Header navbar={navbar} name={name} />
       <PageTitle name="Education" className="text-center pt-8 md:pt-16" />
       <div className="flex flex-col flex-1 p-0 w-full xl:max-w-5xl lg:max-w-screen-md mx-auto">

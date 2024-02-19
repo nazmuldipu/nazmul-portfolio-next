@@ -49,6 +49,7 @@ export type Skills = {
 export type Education = {
   degree: string;
   academy: string;
+  academyLogo: any;
   ends: string;
   starts: string;
   major: PortableTextBlock[];
