@@ -13,8 +13,10 @@ const config: Config = {
       colors: {
         main: "var(--main)",
         "main-hover": "var(--main-hover)",
+        "main-60": "var(--main-60)",
         primary: "var(--light-0)",
         secondary: "var(--light-1)",
+        "secondary-hover": "var(--secondary-hover)",
         "tertiary-text": "var(--tertiary-text)",
         "accent-text": "var(--accent-text)",
         border: "var(--border)",

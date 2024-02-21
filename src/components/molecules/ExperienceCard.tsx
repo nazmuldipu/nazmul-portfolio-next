@@ -31,14 +31,14 @@ const ExperienceCard = ({ exp, index }: ExperienceCardProps) => {
   return (
     <div
       className={`flex ${
-        index % 2 === 0 ? "flex-row-reverse" : "flex-row"
-      } relative items-center w-full my-2`}
+        index % 2 === 0 ? "lg:flex-row-reverse" : "flex-row"
+      } relative items-center w-full my-2 justify-center`}
     >
       <div className="flex-1 hidden lg:flex"></div>
       <div className="hidden lg:inline p-3 bg-main rounded">
         <SVGIcon icon={DiamondIcon} size={20} />
       </div>
-      <section className="flex flex-col flex-1 items-stretch">
+      <section className="flex flex-col flex-1 items-stretch max-w-lg">
         <Link
           href={`/experiences/${exp.slug}`}
           className="mb-5 relative inline-flex flex-col border border-border rounded-2xl"

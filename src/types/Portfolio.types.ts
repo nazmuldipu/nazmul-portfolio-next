@@ -43,7 +43,7 @@ export type Location = {
 };
 export type Skills = {
   level: string;
-  skill: PortableTextBlock[];
+  technologies: Technology[];
 };
 
 export type Education = {

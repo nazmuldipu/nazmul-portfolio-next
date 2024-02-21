@@ -91,7 +91,10 @@ const getNavbar = (navbar: any): NavbarType => {
 const getSkills = (skillSet: any): Skills[] => {
   if (!skillSet) return [];
   const skills = skillSet.map((skill: any) => {
-    return { level: skill.level, skill: skill.skill };
+    return {
+      level: skill.level,
+      technologies: getTechnologies(skill.technologies),
+    };
   });
   return skills;
 };
