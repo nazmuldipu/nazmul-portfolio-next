@@ -18,8 +18,9 @@ import NazmulIcon from "../icons/NazmulIcon";
 interface HeaderProps {
   navbar: NavbarType;
   name: string;
+  className?: string;
 }
-const Header = ({ navbar, name }: HeaderProps) => {
+const Header = ({ navbar, name, className }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getIcon = (path: string) => {
@@ -42,7 +43,9 @@ const Header = ({ navbar, name }: HeaderProps) => {
   };
 
   return (
-    <div className="flex justify-center sticky top-0 z-10 px-2 h-12 bg-main border-b border-secondary">
+    <div
+      className={`navbar flex justify-center sticky top-0 z-10 px-2 h-12 bg-main border-b border-secondary ${className}`}
+    >
       <nav className="w-full xl:max-w-5xl lg:max-w-screen-md mx-auto flex flex-row items-center text-sm">
         <Link
           href="/"

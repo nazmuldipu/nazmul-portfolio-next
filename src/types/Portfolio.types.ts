@@ -9,6 +9,7 @@ export type About = {
   subtitle: string;
   details: {
     title: string;
+    slug: string;
     value: string;
   }[];
 };

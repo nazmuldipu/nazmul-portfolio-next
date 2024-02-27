@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import css from "./themeButton.module.css";
 import SVGIcon from "../icons/SVGIcon";
 import SunIcon from "../icons/SunIcon";
 import MoonIcon from "../icons/MoonIcon";

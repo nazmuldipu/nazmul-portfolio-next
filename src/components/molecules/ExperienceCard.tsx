@@ -5,7 +5,6 @@ import SVGIcon from "@/components/icons/SVGIcon";
 import BuildingIcon from "@/components/icons/BuildingIcon";
 import LocationIcon from "@/components/icons/LocationIcon";
 import SandClockIcon from "@/components/icons/SandClockIcon";
-import NoImageIcon from "@/components/icons/NoImageIcon";
 import Image from "next/image";
 import SanityImage from "./SanityImage";
 

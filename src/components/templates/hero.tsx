@@ -1,11 +1,8 @@
 import { About, Socials } from "@/types/Portfolio.types";
 import SanityImage from "../molecules/SanityImage";
-import SVGIcon from "@/components/icons/SVGIcon";
-import GithubIcon from "@/components/icons/GithubIcon";
 import Link from "next/link";
-import LinkedinIcon from "@/components/icons/LinkedinIcon";
-import EmailAtIcon from "@/components/icons/EmailAtIcon";
 import PageTitle from "@/components/molecules/PageTitle";
+import { getSocialIcon } from "@/components/utils/SocialIcons";
 
 interface HeroProps {
   name: string;
@@ -13,26 +10,6 @@ interface HeroProps {
   image: any;
   socials: Socials[];
 }
-
-const getSocialIcon = (slug: string) => {
-  let icon;
-  switch (slug) {
-    case "github":
-      icon = GithubIcon;
-      break;
-    case "linkedin":
-      icon = LinkedinIcon;
-      break;
-    case "email":
-      icon = EmailAtIcon;
-      break;
-    default:
-      icon = GithubIcon;
-      break;
-  }
-
-  return <SVGIcon icon={icon} size={20} pathClassName="text-secondary-text" />;
-};
 
 const Hero = ({ name, about, image, socials }: HeroProps) => {
   return (
