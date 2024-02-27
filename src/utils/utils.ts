@@ -16,6 +16,7 @@ const getAbout = (about: any): About => {
     return {
       title: detail.title,
       value: detail.value,
+      slug: detail.slug.current,
     };
   });
   return {
