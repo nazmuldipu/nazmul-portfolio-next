@@ -15,7 +15,7 @@ const config: Config = {
         "main-hover": "var(--main-hover)",
         "main-60": "var(--main-60)",
         primary: "var(--light-0)",
-        secondary: "var(--light-1)",
+        secondary: "var(--secondary)",
         "secondary-hover": "var(--secondary-hover)",
         "tertiary-text": "var(--tertiary-text)",
         "accent-text": "var(--accent-text)",
@@ -32,7 +32,7 @@ const config: Config = {
         "0.5": "0.5 1 0%",
       },
       fontFamily: {
-        primary: ["var(--font-primary)"],
+        primary: ["var(--text-f)"],
         secondary: ["var(--font-secondary)"],
         stylus: ["var(--font-stylus)"],
         mono: ["var(--font-mono)"],

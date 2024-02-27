@@ -15,14 +15,14 @@ const ResumePage = async () => {
       <Header navbar={navbar} name={name} className="" />
       <div className="page px-4">
         {/* Top header */}
-        <section className="flex">
-          <div className=" flex-1">
+        <section className="flex flex-col md:flex-row">
+          <div className="flex-1">
             <h2 className="font-light text-4xl tracking-wider">{name}</h2>
             <div className=" text-lg uppercase font-extralight tracking-wide pt-2">
               {about.title}
             </div>
           </div>
-          <div className=" max-w-56 grid gap-2 font-light">
+          <div className=" max-w-56 grid gap-2 font-light pt-4 md:pt-0">
             {about.details.map((detail, index) => (
               <div key={detail.slug} className="flex gap-2 text-sm">
                 <div className="pt-0.5 w-4 shrink-0">
@@ -35,12 +35,11 @@ const ResumePage = async () => {
         </section>
 
         {/* Content area */}
-        <section className="grid grid-cols-5 gap-8 mt-10">
-          <article className="col-span-2">
+        <section className="grid md:grid-cols-5 gap-8 mt-10">
+          <article className="md:col-span-2 order-1">
             {/* About me section */}
             <div>
               {getPageSectionTitle("About me")}
-
               <div className="font-light">{about.subtitle}</div>
             </div>
             <div>
@@ -75,18 +74,18 @@ const ResumePage = async () => {
               ))}
             </div>
           </article>
-          <article className="col-span-3">
+          <article className="md:col-span-3 md:order-2">
             <div>
               {getPageSectionTitle("Education")}
               <div className="grid gap-4">
                 {education.map((edu, index) => (
                   <div key={edu.academy} className="flex">
                     {getSidebar()}
-                    <div className="flex flex-col pl-2">
-                      <div className=" font-light tracking-wider">
+                    <div className="flex flex-col md:pl-2 text-xs">
+                      <div className="font-light tracking-wider">
                         {edu.degree}
                       </div>
-                      <div className=" font-lighter tracking-wide py-2">
+                      <div className="font-lighter tracking-wide md:py-2">
                         {edu.academy}
                       </div>
                       <p className="text-sm font-light">
@@ -105,7 +104,7 @@ const ResumePage = async () => {
                 {experience.map((exp, index) => (
                   <div key={exp.company} className="experience flex">
                     {getSidebar()}
-                    <div className="pl-2 text-sm">
+                    <div className="md:pl-2 text-sm">
                       <h4 className=" uppercase tracking-wider font-normal text-base">
                         {exp.designation}
                       </h4>
@@ -130,7 +129,7 @@ const ResumePage = async () => {
 
 const getSidebar = () => {
   return (
-    <div className="w-3 shrink-0 relative">
+    <div className="w-3 shrink-0 relative hidden md:block">
       <div className="absolute top-1 left-[6px] border-r border-accent-text w-0 h-full"></div>
       <div className="absolute top-1 left-0 border border-accent-text w-3 h-3 rounded-full bg-main"></div>
       <div className="absolute top-2 left-1 w-0 h-0 border-2 border-accent-text rounded-full "></div>
