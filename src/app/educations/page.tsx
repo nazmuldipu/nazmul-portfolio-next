@@ -6,7 +6,6 @@ import { formatSanityData } from "@/utils/utils";
 
 const EducationPage = async () => {
   const data = await getEducationData();
-
   const { education, navbar, name } = formatSanityData(data);
 
   return (

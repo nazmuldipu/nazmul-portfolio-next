@@ -1,10 +1,7 @@
 import { client } from "./client";
 
 export async function getProfile() {
-  const posts = await client.fetch(
-    '*[_type == "portfolio"][0]{about,experience,education,lastEducation,navbar,location,headline,image,title,skills,name}'
-  );
-  return posts;
+  return await client.fetch('*[_type == "portfolio"][0]');
 }
 
 export async function getHomePageData() {
